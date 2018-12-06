@@ -1,7 +1,7 @@
 package uk.co.mmscomputing.device.scanner;
 
 import java.io.*;
-import java.awt.image.*;
+import android.graphics.Bitmap;
 
 abstract public class ScannerIOMetadata{
 
@@ -17,7 +17,7 @@ abstract public class ScannerIOMetadata{
 
   private int           laststate=0,state=0;
   private boolean       cancel=false;               // if true application wants scan engine to abort scan as soon as possible
-  private BufferedImage image=null;
+  private Bitmap        image=null;
   private File          file=null;
   private String        info="";
   private Exception     exception=null;
@@ -29,7 +29,7 @@ abstract public class ScannerIOMetadata{
   public boolean   isState(int state){ return this.state==state;}
 
   public void      setImage(BufferedImage image){ this.image=image;this.file=null;}
-  public BufferedImage getImage(){return image;}
+  public Bitmap getImage(){return image;}
 
   public void      setFile(File file){ this.image=null;this.file=file;}
   public File      getFile(){return file;}
